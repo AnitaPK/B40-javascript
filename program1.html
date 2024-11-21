@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .greetNameRed{
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Learn javascript</h1>
+<h3 id="textH3">AJEET</h3>
+<button onclick="changeText()">Click me to chenge Text</button>
+
+<br>
+<button onclick="textFromWrite()">Click me</button>
+
+<hr>
+<label>First Name</label>
+<input type="text" id="fname" />
+<button onclick="showGreetings()">Submit</button>
+<p>Hello <span id="fnameOutput" ></span></p>
+
+<hr><hr>
+<pre id="fnameFromPromt"></pre>
+
+
+    <script>
+        console.log("hellow from script within html file");
+        alert("hellow in alert..........");
+        h3content = document.getElementById('textH3')
+        // h3content.innerHTML = "Wisdom Sprouts"
+        console.log(h3content);
+
+        function changeText(){
+            document.getElementById('textH3').innerHTML = 'Wisdom Sprouts'
+        }
+        document.write("%%%%%%%%%%hello from document write%%%%%%%%")
+
+        function textFromWrite(){
+            document.write('please remove all and show only this sentence')
+        }
+        function showGreetings(){
+             greetName =document.getElementById('fnameOutput');
+             fname =document.getElementById('fname')
+             greetName.classList.add('greetNameRed')
+             greetName.innerHTML = fname.value
+        }
+    </script>
+    <script src="./program1.js"></script>
+</body>
+</html>
