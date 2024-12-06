@@ -36,3 +36,13 @@ console.log(rsult);
 (()=>{})();
 
 (function(){})();
+
+
+function addition(a,b){
+   return a+b;
+}
+c = addition(4,5)
+
+add = (a,b)=>{a+b}
+
+d = add(3,4)
