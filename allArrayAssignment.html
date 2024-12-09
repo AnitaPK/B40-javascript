@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Assignments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        .assignment {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .output {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        input,
+        button {
+            margin: 5px;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 50%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>JavaScript Array Assignments</h2>
+
+    <!-- Assignment 1: To-Do List -->
+    <div class="assignment" id="todo-list">
+        <h3>1. To-Do List Manager</h3>
+        <input type="text" id="taskInput" placeholder="Enter a task" />
+        <button onclick="addTask()">Add Task</button>
+        <button onclick="clearTasks()">Clear All</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <!-- Assignment 2: Student Marks Calculator -->
+    <div class="assignment" id="marks-calculator">
+        <h3>2. Student Marks Calculator</h3>
+        <input type="number" id="markInput" placeholder="Enter a mark" />
+        <button onclick="addMark()">Add Mark</button>
+        <button onclick="calculateMarks()">Calculate</button>
+        <button onclick="resetMarks()">Reset</button>
+        <div class="output" id="marksOutput"></div>
+    </div>
+
+    <!-- Assignment 3: Search in an Array -->
+    <div class="assignment" id="search-array">
+        <h3>3. Search in an Array</h3>
+        <input type="text" id="searchInput" placeholder="Search for a car brand" />
+        <button onclick="searchCar()">Search</button>
+        <ul id="searchResults"></ul>
+    </div>
+
+    <!-- Assignment 4: Filter Even and Odd Numbers -->
+    <div class="assignment" id="even-odd">
+        <h3>4. Filter Even and Odd Numbers</h3>
+        <input type="number" id="numberInput" placeholder="Enter a number" />
+        <button onclick="addNumber()">Add Number</button>
+        <button onclick="showEven()">Show Even</button>
+        <button onclick="showOdd()">Show Odd</button>
+        <button onclick="clearNumbers()">Clear</button>
+        <div class="row">
+            <div class="column">
+                <h4>Even Numbers</h4>
+                <div class="output" id="evenNumbers"></div>
+            </div>
+            <div class="column">
+                <h4>Odd Numbers</h4>
+                <div class="output" id="oddNumbers"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assignment 5: Sort Names Alphabetically -->
+    <div class="assignment" id="sort-names">
+        <h3>5. Sort Names Alphabetically</h3>
+        <input type="text" id="nameInput" placeholder="Enter a name" />
+        <button onclick="addName()">Add Name</button>
+        <button onclick="sortNames()">Sort</button>
+        <button onclick="resetNames()">Reset</button>
+        <div class="output" id="namesList"></div>
+    </div>
+
+    <script>
+        // Assignment 1: To-Do List
+        let tasks = [];
+        function updateTaskList() {
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = tasks
+                .map((task, index) => `<li>
+                                            ${task} 
+                                            <button onclick="deleteTask(${index})">Delete</button>
+                                        </li>`)
+                .join('');
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            updateTaskList();
+        }
+
+        function clearTasks() {
+            tasks = [];
+            updateTaskList();
+        }
+
+        function addTask() {
+            const task = document.getElementById('taskInput').value.trim();
+            if (task) {
+                console.log(tasks)
+                tasks.push(task);
+                document.getElementById('taskInput').value = '';
+                updateTaskList();
+            } else {
+                alert("Please enter a task!");
+            }
+        }
+
+
+        // Assignment 2: Student Marks Calculator
+        let marks = [];
+        function addMark() {
+            const mark = parseInt(document.getElementById('markInput').value);
+            if (!isNaN(mark)) {
+                marks.push(mark);
+                document.getElementById('markInput').value = '';
+            }
+        }
+        function calculateMarks() {
+            if (marks.length > 0) {
+                const total = marks.reduce((sum, mark) => sum + mark, 0);
+                const average = total / marks.length;
+                const max = Math.max(...marks);
+                const min = Math.min(...marks);
+                document.getElementById('marksOutput').innerHTML = `
+          Total Marks: ${total} <br>
+          Average Marks: ${average.toFixed(2)} <br>
+          Highest Mark: ${max} <br>
+          Lowest Mark: ${min}
+        `;
+            }
+        }
+        function resetMarks() {
+            marks = [];
+            document.getElementById('marksOutput').innerHTML = '';
+        }
+
+        // Assignment 3: Search in an Array
+        const carBrands = ["Toyota", "Honda", "Ford", "BMW", "Audi", "Mercedes", "Nissan", "Hyundai", "Kia", "Tesla"];
+
+        function searchCar() {
+            const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+            const searchResults = document.getElementById('searchResults');
+
+            // Filter car brands based on the search input
+            const filteredBrands = carBrands.filter(brand => brand.toLowerCase().includes(searchInput));
+
+            // Clear and update the search results
+            searchResults.innerHTML = filteredBrands.length
+                ? filteredBrands.map(brand => `<li>${brand}</li>`).join('')
+                : '<li>No matches found</li>';
+        }
+
+        // // Assignment 4: Filter Even and Odd Numbers
+        // let numbers = [];
+        // function addNumber() {
+        //     const num = parseInt(document.getElementById('numberInput').value);
+        //     if (!isNaN(num)) {
+        //         numbers.push(num);
+        //         document.getElementById('numberInput').value = '';
+        //     }
+        // }
+        // function showEven() {
+        //     const evens = numbers.filter(num => num % 2 === 0);
+        //     document.getElementById('evenNumbers').textContent = evens.join(', ');
+        // }
+        // function showOdd() {
+        //     const odds = numbers.filter(num => num % 2 !== 0);
+        //     document.getElementById('oddNumbers').textContent = odds.join(', ');
+        // }
+        // function clearNumbers() {
+        //     numbers = [];
+        //     document.getElementById('evenNumbers').textContent = '';
+        //     document.getElementById('oddNumbers').textContent = '';
+        // }
+
+        // // Assignment 5: Sort Names Alphabetically
+        // let names = [];
+        // function addName() {
+        //     const name = document.getElementById('nameInput').value;
+        //     if (name) {
+        //         names.push(name);
+        //         updateNamesList();
+        //         document.getElementById('nameInput').value = '';
+        //     }
+        // }
+        // function sortNames() {
+        //     names.sort();
+        //     updateNamesList();
+        // }
+        // function resetNames() {
+        //     names = [];
+        //     updateNamesList();
+        // }
+        // function updateNamesList() {
+        //     document.getElementById('namesList').textContent = names.join(', ');
+        // }
+    </script>
+</body>
+
+</html>
