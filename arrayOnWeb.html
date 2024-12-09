@@ -19,10 +19,7 @@
         
         // `
         console.log(arrayName)
-        document.getElementById('throughtUL').innerHTML = arrayName.map((name)=>{
-            "<li>"+name+"</li>"
-            // console.log(name)
-        });
+        document.getElementById('throughtUL').innerHTML = arrayName.map((name)=>`<li>${name}</li>`);
 
     </script>
 </body>
