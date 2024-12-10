@@ -216,50 +216,50 @@
                 : '<li>No matches found</li>';
         }
 
-        // // Assignment 4: Filter Even and Odd Numbers
-        // let numbers = [];
-        // function addNumber() {
-        //     const num = parseInt(document.getElementById('numberInput').value);
-        //     if (!isNaN(num)) {
-        //         numbers.push(num);
-        //         document.getElementById('numberInput').value = '';
-        //     }
-        // }
-        // function showEven() {
-        //     const evens = numbers.filter(num => num % 2 === 0);
-        //     document.getElementById('evenNumbers').textContent = evens.join(', ');
-        // }
-        // function showOdd() {
-        //     const odds = numbers.filter(num => num % 2 !== 0);
-        //     document.getElementById('oddNumbers').textContent = odds.join(', ');
-        // }
-        // function clearNumbers() {
-        //     numbers = [];
-        //     document.getElementById('evenNumbers').textContent = '';
-        //     document.getElementById('oddNumbers').textContent = '';
-        // }
+        // Assignment 4: Filter Even and Odd Numbers
+        let numbers = [];
+        function addNumber() {
+            const num = parseInt(document.getElementById('numberInput').value);
+            if (!isNaN(num)) {
+                numbers.push(num);
+                document.getElementById('numberInput').value = '';
+            }
+        }
+        function showEven() {
+            const evens = numbers.filter(num => num % 2 === 0);
+            document.getElementById('evenNumbers').textContent = evens.join(', ');
+        }
+        function showOdd() {
+            const odds = numbers.filter(num => num % 2 !== 0);
+            document.getElementById('oddNumbers').textContent = odds.join(', ');
+        }
+        function clearNumbers() {
+            numbers = [];
+            document.getElementById('evenNumbers').textContent = '';
+            document.getElementById('oddNumbers').textContent = '';
+        }
 
-        // // Assignment 5: Sort Names Alphabetically
-        // let names = [];
-        // function addName() {
-        //     const name = document.getElementById('nameInput').value;
-        //     if (name) {
-        //         names.push(name);
-        //         updateNamesList();
-        //         document.getElementById('nameInput').value = '';
-        //     }
-        // }
-        // function sortNames() {
-        //     names.sort();
-        //     updateNamesList();
-        // }
-        // function resetNames() {
-        //     names = [];
-        //     updateNamesList();
-        // }
-        // function updateNamesList() {
-        //     document.getElementById('namesList').textContent = names.join(', ');
-        // }
+        // Assignment 5: Sort Names Alphabetically
+        let names = [];
+        function addName() {
+            const name = document.getElementById('nameInput').value;
+            if (name) {
+                names.push(name);
+                updateNamesList();
+                document.getElementById('nameInput').value = '';
+            }
+        }
+        function sortNames() {
+            names.sort();
+            updateNamesList();
+        }
+        function resetNames() {
+            names = [];
+            updateNamesList();
+        }
+        function updateNamesList() {
+            document.getElementById('namesList').textContent = names.join(', ');
+        }
     </script>
 </body>
 

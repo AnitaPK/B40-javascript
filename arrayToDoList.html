@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style-type: none;
+        }
+        li{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="taskName" />
+    <button onclick="addTask()">Add task</button>
+    <button onclick="clearAll()">Clear all</button>
+    <ul id="showTasks"></ul>
+
+
+
+    <script>
+        let tasks = []
+        function updateTask(){
+            document.getElementById('showTasks').innerHTML = tasks.map(
+                                                            (task, index)=>`<li>${task}</li> 
+                                                            <button onclick="deleteTask(${index})">Delete</button>
+                                                            `).join('')
+        }
+        function addTask(){
+            taskInput = document.getElementById('taskName')
+            taskElement =  taskInput.value
+            // console.log(taskInput);
+            // console.log(taskElement);
+            tasks.push(taskElement);
+            taskInput.value = ''
+            console.log(tasks);
+            updateTask();
+
+        }
+        function deleteTask(i){
+            tasks.splice(i, 1);
+            updateTask();
+        }
+        function clearAll(){
+            tasks=[];
+            updateTask();
+        }
+       
+    </script>
+</body>
+</html>

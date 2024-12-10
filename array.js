@@ -78,3 +78,16 @@ console.log(sumArr)
 console.log(arr.some((elem)=>elem > 654))
 
 console.log(products.concat(arr, ["%","^","#"]))
+
+
+arr = ['red','green','blue']
+aar2 = [...arr]
+// ?:     ternary operator
+
+if(cond){
+    stmt1
+}else{
+    stm2
+}
+
+stm = cond ? stmt1 : stm2
