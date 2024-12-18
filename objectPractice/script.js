@@ -26,17 +26,40 @@ products = [
   },
 ];
 
+
+cart = [];
+
+
+// save to local storage
 function saveToLocalStorage() {
   localStorage.setItem("Products", JSON.stringify(products));
+  localStorage.setItem("cart", JSON.stringify(cart));
+
 }
 saveToLocalStorage();
 
+
+  //Load from Local Storage
+  function loadFromLocalStorage() {
+    const storedProducts = localStorage.getItem("Products");
+    if (storedProducts) {
+      products = JSON.parse(storedProducts);
+    }
+  }
+
+// save to local storage
+// function saveToLocalStorageCart() {
+//     localStorage.setItem("cart", JSON.stringify(cart));
+//   }
+//   saveToLocalStorageCart();
+  loadFromLocalStorage();
+
 // DOM Elements
-const productList = document.getElementById("productList");
+const productList = document.getElementById("prodList");
 const searchInput = document.getElementById("searchInput");
 
 function renderProducts(filteredProducts = products) {
-  document.getElementById("prodList").innerHTML = filteredProducts
+  productList.innerHTML = filteredProducts
     .map(
       (product) =>
         `
@@ -57,7 +80,7 @@ function renderProducts(filteredProducts = products) {
     )
     .join("");
 }
-renderProducts();
+
 
 function addNewProduct() {
   const newProduct = {
@@ -117,11 +140,6 @@ function updateProduct(id) {
   }
 }
 
-// function deleteProduct(id) {
-//   products = products.filter((p) => p.id !== id);
-//   saveToLocalStorage();
-//   renderProducts();
-// }
 
 function deleteProduct(ID){
   console.log(ID);
@@ -132,21 +150,12 @@ function deleteProduct(ID){
 
 
 // Search functionality
-// searchInput.addEventListener("input", (event) => {
-//   const searchText = event.target.value.toLowerCase();
-//   const filteredProducts = products.filter((product) =>
-//     product.productName.toLowerCase().includes(searchText)
-//   );
-//   renderProducts(filteredProducts);
-// });
-
 searchInput.addEventListener('input', ()=>{
-  searchKey = event.target.value.toLowerCase();
+  searchKey = e.target.value.toLowerCase();
   console.log(searchKey)
   filteredNewProducts = products.filter((prod)=>prod.productName.toLowerCase().includes(searchKey))
   renderProducts(filteredNewProducts);
 })
-
 
 // //updated for word Search functionality
 // document.getElementById("searchInput").addEventListener("input", (e) => {
@@ -162,3 +171,5 @@ searchInput.addEventListener('input', ()=>{
 
 //   renderProducts(filteredProducts);
 // });
+
+  renderProducts();
