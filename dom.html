@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demoClass{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="newElement" ></div>
+    <img src="../HTML-CSS/assets/backgroundImage.jpg" id="imgaeID" />
+
+    <p id="time"></p>
+    <button id="showTime">show time</button>
+
+    <script>
+        pTag = document.createElement('p')
+        console.log(pTag);
+        str = document.createTextNode('Hellow world')
+        console.log(str)
+
+        pTag = pTag.appendChild(str);
+        console.log(pTag);
+        divDemo =   document.querySelector('#newElement')
+        divDemo.appendChild(pTag);
+        divDemo.style.color = 'red';
+        divDemo.style.fontSize = '50px'
+        divDemo.classList.add('demoClass');
+        document.getElementById('imgaeID').setAttribute('alt', 'ImageName111')
+        var1 = document.getElementById('imgaeID').getAttribute('alt')
+        console.log(var1);
+        document.getElementById('imgaeID').setAttribute('alt', 'ImageName2222')
+
+
+        document.getElementById('showTime').addEventListener('click', ()=>{
+            document.querySelector('#time').innerHTML = Date()
+        })
+
+    </script>
+</body>
+</html>
