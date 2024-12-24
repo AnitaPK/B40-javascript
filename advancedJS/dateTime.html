@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="showTime"></p>
+    <div>
+        <span id="hour"></span>
+        :
+        <span id="minutes"></span>
+        :
+        <span id="seconds"></span>
+    </div>
+    <script>
+        function showDigitalClock(){
+        const date = new Date();
+        // date1 = Date.now();
+        // console.log(date);
+        document.getElementById('showTime').innerHTML =date;
+        document.getElementById('hour').innerHTML = date.getHours();
+        document.getElementById('minutes').innerHTML = date.getMinutes();
+        document.getElementById('seconds').innerHTML = date.getSeconds();
+        }
+        // showDigitalClock();
+        setInterval(showDigitalClock,1000)
+    </script>
+</body>
+</html>

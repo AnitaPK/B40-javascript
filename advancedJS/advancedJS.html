@@ -1,0 +1,74 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    document.write("Hello"); // First 
+    document.write("<br>");
+     
+    document.write("Girish");// Second 
+    document.write("<br>");
+     
+    document.write("How are you"); // Third
+    
+    document.write("Hi");
+    document.write("<br>");
+     
+    // setTimeout(() => {
+    //     document.write("Let us see what happens");
+    // }, 2000);
+    function functionName(){
+        document.getElementById('gh').innerHTML='ghj';
+        document.write('Hello from function')
+    } 
+    setTimeout(functionName, 2000)
+    document.write("<br>");
+    document.write("End");
+    document.write("<br>");
+</script>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="message"></div>
+    <script>
+        var msg = document.getElementById("message");
+   
+        function f1() {
+            return new Promise(function(resolve, reject){
+                function Withinf1Function() {
+               msg.innerHTML += `<p>f1 is starting</p>`;
+               msg.innerHTML += `<p>f1 is ending</p>`;
+                resolve();
+
+            }
+            setTimeout(Withinf1Function,1000)
+            // msg.innerHTML += `<p>f1 is not having error</p>`;
+            // reject();
+        })
+
+                 }
+        async function  f2() {
+            msg.innerHTML += `<p>f2 is starting</p>`;
+            await f1();
+            msg.innerHTML += `<p>f2 is ending</p>`;
+        }
+   
+        f2();
+   
+
+    </script>
+</body>
+</html> -->
+
