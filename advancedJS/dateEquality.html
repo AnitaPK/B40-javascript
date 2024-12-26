@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced JavaScript Tasks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+    }
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .task {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: #007bff;
+      color: #fff;
+      font-size: 14px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .clock {
+      font-size: 24px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Advanced JavaScript Tasks</h1>
+
+    <div class="task">
+      <h2>1. Start and Stop a Clock</h2>
+      <div id="clock" class="clock">00:00:00</div>
+      <button id="startClock">Start Clock</button>
+      <button id="stopClock">Stop Clock</button>
+    </div>
+
+    <div class="task">
+      <h2>2. Count to 10 with setInterval</h2>
+      <div id="countDisplay">0</div>
+      <button id="startCounting">Start Counting</button>
+    </div>
+
+    <!-- Additional tasks will go here -->
+  </div>
+
+  <script>
+          var valid = true;
+    var setEvent = new Date();
+    setEvent.setFullYear(2024, 11, 27)
+    console.log(setEvent);
+    var eventDate = new Date();
+    
+    console.log(setEvent.getTime());
+    console.log(eventDate.getTime());
+
+    if(setEvent.getTime() > eventDate.getTime()) {
+        alert("Your event is upcomming.");
+        valid = false;
+    } else if(setEvent.getTime() === eventDate.getTime()) {
+        alert("Its ur event Day");
+        valid = false;
+    }
+
+  </script>
+</body>
+</html>
